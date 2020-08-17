@@ -60,3 +60,29 @@ boolean has_gas()
 ## Use a different design pattern for this solution.
 
 I solve this problem by using Factory Design Patterns.It allows all of the object creation in a centralized location.
+```
+function Car(num_of_wheels, num_of_passengers, has_gas) {
+  this.num_of_wheels = num_of_wheels;
+  this.num_of_passengers = num_of_passengers;
+  this.has_gas = has_gas;
+  this.type = "Car";
+}
+
+function Plane(num_of_wheels, num_of_passengers, has_gas) {
+  this.num_of_wheels = num_of_wheels;
+  this.num_of_passengers = num_of_passengers;
+  this.has_gas = has_gas;
+  this.type = "Plane";
+}
+
+function VehicleFactory() {
+  this.create = (wheels, passengers, gas, type) => {
+    switch (type) {
+      case 1:
+        return new Car(wheels, passengers, gas);
+      case 2:
+        return new Plane(wheels, passengers, gas);
+    }
+  };
+}
+```
